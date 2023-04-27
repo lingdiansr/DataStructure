@@ -21,9 +21,8 @@ LN_P creat_linklist(int n)
 }
 void print_list(LN_P p)
 {
-    while (p)
+    while (p = p->next)
     {
-        p = p->next;
         printf("%d ", p->data);
     }
     printf("\n");
