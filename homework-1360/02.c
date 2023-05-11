@@ -1,3 +1,6 @@
+/*
+本题与第一题基本类似，主要是条件变化
+*/
 #include <stdio.h>
 #include <stdbool.h>
 #define SIZE 20
@@ -48,6 +51,7 @@ int main()
     {
         scanf("%c", &ch);
         flag = (readStackTop(&s1) == '(') && (ch == ')') || (readStackTop(&s1) == '{') && (ch == '}') || (readStackTop(&s1) == '[') && (ch == ']');
+        // 三种括号有一种匹配就可出栈
         if (flag)
         {
             popStack(&s1, &tmp);
@@ -57,7 +61,7 @@ int main()
             pushStack(&s1, ch);
         }
     }
-    if (s1.top == -1)
+    if (s1.top == -1) //同理栈空为全部匹配
     {
         printf("YES");
     }
