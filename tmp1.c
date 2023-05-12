@@ -1,88 +1,31 @@
-#include <string.h>
-#define STACK_TOP_IDX -1
-struct stack_st
+#include <cstdio>
+#include <iostream>
+#include <stack>
+using namespace std;
+int a[100010];
+int L[100010];
+int main(void)
 {
-    int stackTop;
-    int stackData[30000];
-};
-int Top(struct stack_st *stackData, int *value)
-{
-    if (stackData->stackTop == STACK_TOP_IDX)
+    stack<int> st;
+    int N;
+    cin >> N;
+    for (int i = 1; i <= N; i++)
     {
-        return 0;
+        cin >> a[i];
     }
-    *value = stackData->stackData[stackData->stackTop];
-    return 1;
-}
-void pop(struct stack_st *stackData)
-{
-    if (stackData->stackTop == STACK_TOP_IDX)
+    for (int i = 1; i <= N; i++)
     {
-        return;
-    }
-    stackData->stackTop--;
-    return;
-}
-void push(struct stack_st *stackData, int data)
-{
-    if (stackData->stackTop == 29999)
-    {
-        return;
-    }
-    stackData->stackTop++;
-    stackData->stackData[stackData->stackTop] = data;
-    return;
-}
-int *dailyTemperatures(int *temperatures, int temperaturesSize, int *returnSize)
-{
-    int ret = 0, mid = 0, i = 0;
-    int *temp = (int *)calloc(temperaturesSize, sizeof(int));
-    if (temperaturesSize <= 1)
-    {
-        *returnSize = 1;
-        printf("0\n");
-        temp[0] = 0;
-        return temp;
-    }
-    struct stack_st myStack;
-    memset(&myStack, 0, sizeof(struct stack_st));
-    myStack.stackTop = STACK_TOP_IDX;
-    push(&myStack, 0);
-    for (i = 0; i < temperaturesSize - 1; i++)
-    {
-        if (temperatures[i + 1] <= temperatures[i])
+        while (st.size() && a[st.top()] < a[i])
         {
-            push(&myStack, i + 1);
+            L[st.top()] = i;
+            st.pop();
         }
-        else
-        {
-            while (1)
-            {
-                if (!Top(&myStack, &mid))
-                    break;
-                if (temperatures[mid] < temperatures[i + 1])
-                {
-                    temp[mid] = i + 1;
-                    pop(&myStack);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            push(&myStack, i + 1);
-        }
+        st.push(i);
     }
-    for (i = 0; i < temperaturesSize; i++)
+    for (int i = 1; i <= N; i++)
     {
-        temp[i] = temp[i] - i;
-        if (temp[i] < 0)
-            temp[i] = 0;
-        if (i == temperaturesSize - 1)
-            printf("%d\n", temp[i]);
-        else
-            printf("%d, ", temp[i]);
+        cout << L[i] << endl;
+        ;
     }
-    *returnSize = temperaturesSize;
-    return temp;
+    return 0;
 }

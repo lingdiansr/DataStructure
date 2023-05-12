@@ -14,7 +14,7 @@
 5
 3 4 1 2 3
 
-6 
+6
 3 2 6 1 1 2
 
 
@@ -33,25 +33,29 @@
 #include <stdlib.h>
 int main()
 {
-    int n, *stack, top, x, *index;
+    int n, *stack, top, x, *index,*a;
     scanf("%d", &n);
-    stack = (int *)malloc(sizeof(int) * (n+1));
-    index = (int *)malloc(sizeof(int) * (n+1));
+    a = (int *)malloc(sizeof(int) * (n + 1));
+    index = (int *)malloc(sizeof(int) * (n + 1));
+    stack = (int *)malloc(sizeof(int) * (n + 1));
     top = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
+        scanf("%d", &a[i]);
         index[i] = 0;
-        scanf("%d", &x);
-        while (top&&stack[top]<x)
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        while (top && a[stack[top]] < a[i])
         {
-            index[top] = i;
+            index[stack[top]] = i;
             top--;
         }
         top++;
-        stack[top] = x;
+        stack[top] = i;
     }
     for (int i = 1; i <= n; i++)
     {
         printf("%d ", index[i]);
-    }   
+    }
 }
