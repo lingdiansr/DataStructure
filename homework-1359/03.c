@@ -21,7 +21,7 @@ void popStack(Stack *a, int *value) //出栈，将值存储到value
     {
         return;
     }
-    value = a->data[a->top];
+    *value = a->data[a->top];
     a->top--;
 }
 int main()
@@ -41,14 +41,14 @@ int main()
         { // lineOut
             while (s1.top >= 0)
             {
-                popStack(&s1, tempValue);
+                popStack(&s1, &tempValue);
                 pushStack(&s2, tempValue);
                 //将s1中的值全部存入s2，借用s2使得顺序与队列一致
             }
             popStack(&s2, tempValue); // 实际上的出队列
             while (s2.top >= 0)
             {
-                popStack(&s2, tempValue);
+                popStack(&s2, &tempValue);
                 pushStack(&s1, tempValue);
                 //将s2中的数据再次存回s1，保证后续能够正常入队
             }
