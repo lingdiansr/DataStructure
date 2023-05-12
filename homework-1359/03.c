@@ -15,7 +15,7 @@ void pushStack(Stack *a, int value) //入栈，从value读取值
     a->top++;
     a->data[a->top] = value;
 }
-void popStack(Stack *a, int *value) //入栈，将值存储到value
+void popStack(Stack *a, int *value) //出栈，将值存储到value
 {
     if (a->top < 0)
     {

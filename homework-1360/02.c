@@ -41,7 +41,7 @@ int main()
     int n;
     char ch, tmp;
     bool flag;
-    sqStack s1;
+    sqStack s1={0,0};
     s1.top = -1;
     scanf("%d", &n);
     getchar();
