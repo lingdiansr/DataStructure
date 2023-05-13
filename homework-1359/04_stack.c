@@ -33,7 +33,7 @@
 #include <stdlib.h>
 int main()
 {
-    int n, *stack, top, x, *index,*a;
+    int n, *stack, top, x, *index,*a,c=0;
     scanf("%d", &n);
     a = (int *)malloc(sizeof(int) * (n + 1));
     index = (int *)malloc(sizeof(int) * (n + 1));
