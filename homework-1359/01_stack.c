@@ -8,10 +8,10 @@ int main()
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &stack[top]);
-        top++;
+        scanf("%d", &stack[n-i-1]);
     }
-    while (top!=-1)
+    top = n - 1;
+    while (top>-1)
     {
         if (stack[top])
         {
