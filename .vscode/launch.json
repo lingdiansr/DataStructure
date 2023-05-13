@@ -6,6 +6,7 @@
     "configurations": [
         {
             "name": "g++.exe - 生成和调试活动文件",
+    
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",

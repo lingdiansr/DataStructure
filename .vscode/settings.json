@@ -2,6 +2,7 @@
     "files.associations": {
         "*.txt": "tex",
         "ostream": "cpp"
+        
  
     }
 }
