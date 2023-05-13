@@ -10,7 +10,6 @@ typedef struct tt
     char data[20];
     int top;
 } sqStack;
-sqStack sss=;
 void pushStack(sqStack *a, char value) // 入栈，从value读取值
 {
     if (a->top == SIZE - 1)
