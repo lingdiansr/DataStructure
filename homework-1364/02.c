@@ -3,7 +3,6 @@
 int n, *tree;
 int countnodes(int index)
 {
-
     if ((2 * index <= n) && (tree[2 * index] || tree[2 * index + 1]))
     {
         int leftSubTree = countnodes(2 * index);
