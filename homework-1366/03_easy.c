@@ -12,7 +12,6 @@ int main()
         {
             printf("%d ", tree[i]);
         }
-        
     }
     return 0;
 }

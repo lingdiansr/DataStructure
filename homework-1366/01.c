@@ -11,7 +11,6 @@ void bianli(int index)
     }
     else if (tree[index])
     {
-        //bianli(index);
         printf("%d ", tree[index]);
     }
 }
